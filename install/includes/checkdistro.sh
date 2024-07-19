@@ -1,6 +1,6 @@
 distro=""
 if [ -z "$1" ]; then
-    if [ -f /etc/fedora-release ] || [ -f /etc/nobara-release ]; then
+    if [ -f /etc/fedora-release ] || [ -f /etc/nobara-release ]  || [ -f /etc/nobara ]; then
         distro="fedora"
     elif [ -f /etc/arch-release ]; then
         distro="arch"
