@@ -1,6 +1,6 @@
 distro=""
 if [ -z "$1" ]; then
-    if [ -f /etc/fedora-release ] || [ -f /etc/nobara-release ]  || [ -f /etc/nobara ]; then
+    if [ -f /etc/fedora-release ] || [ -f /etc/nobara-release ] || [ -f /etc/nobara ]; then
         distro="fedora"
     elif [ -f /etc/arch-release ]; then
         distro="arch"
@@ -16,9 +16,9 @@ else
     esac
 fi
 
-if [ -z $distro ] ;then
+if [ -z "$distro" ] ;then
     echo "ERROR: Your Linux distribution is not supported."
-    exit
+    exit 1
 fi
 
 echo "$distro" > dotfiles/.config/ml4w/settings/distro
