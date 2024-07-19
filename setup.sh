@@ -6,7 +6,7 @@
 
 # Detect Linux Distribution
 _detectDistro() {
-    if [ -f /etc/fedora-release ] || [ -f /etc/nobara-release ]; then
+    if [ -f /etc/fedora-release ] || [ -f /etc/nobara-release ] || [ -f /etc/nobara ]; then
         echo "fedora"
     elif [ -f /etc/arch-release ]; then
         echo "arch"
