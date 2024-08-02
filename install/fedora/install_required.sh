@@ -81,3 +81,20 @@ sudo dnf install duo_unix -y
 else
     echo "Duo is already installed"
 fi
+
+# Add COPR Repos
+add_copr_repos() {
+    local repos=("$@")
+    for repo in "${repos[@]}"; do
+        print_message "${GREEN}" "Adding COPR repository $repo..."
+        if ! sudo dnf copr enable -y "$repo" &> /dev/null; then
+            print_message "${RED}" "Failed to install $repo"
+            exit 1
+        fi
+    done
+}
+
+# Adding COPR packages, such as hyprland
+add_copr_repos "solopasha/hyprland" "atim/veloren" "atim/airshipper" "atim/xpadneo" "alebastr/sway-extras" "atim/starship" "ryanabx/cosmic-epoch" "phracek/PyCharm" "atim/gping" "atim/bottom" "atim/heroic-games-launcher" "atim/resources" "atim/sniffglue" "atim/rustscan" "atim/gitui" "atim/NetworkManager-wireguard" "atim/breeze"
+
+
