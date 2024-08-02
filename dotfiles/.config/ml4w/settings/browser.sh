@@ -1,1 +1,1 @@
-firefox
+microsoft-edge
